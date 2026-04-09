@@ -1,0 +1,7 @@
+{
+  "network": "hashkeyTestnet",
+  "chainId": 133,
+  "proofVault": "0x51896d422E51a5Bfc29defa439d5CA2927abA9cE",
+  "veloraRegistry": "0xcCd5C3f06335745d396e51C1AcC898D8C316fd5b",
+  "deployedAt": "2026-04-09T18:38:16.942Z"
+}
