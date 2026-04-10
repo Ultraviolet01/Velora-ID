@@ -1,0 +1,102 @@
+﻿git : remote: error: 
+GH013: Repository rule 
+violations found for refs/
+heads/feature/high-fidelit
+y-redesign.        
+At line:1 char:1
++ git push origin feature/
+high-fidelity-redesign -f 
+2>&1 | Out-File -Fi ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~
+    + CategoryInfo        
+      : NotSpecified: (r  
+  emote: error: ...desi   
+ gn.        :String) [    
+], RemoteException
+    + FullyQualifiedError 
+   Id : NativeCommandErr  
+  or
+ 
+remote: 
+remote: - GITHUB PUSH 
+PROTECTION        
+remote:   ΓÇöΓÇöΓÇöΓÇöΓÇöΓ
+ÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇö
+ΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇ
+öΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓ
+ÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇö
+ΓÇö        
+remote:     Resolve the 
+following violations 
+before pushing again      
+  
+remote: 
+remote:     - Push cannot 
+contain secrets        
+remote: 
+remote:             
+remote:      (?) Learn 
+how to resolve a blocked 
+push        
+remote:      https://docs.
+github.com/code-security/s
+ecret-scanning/working-wit
+h-secret-scanning-and-push
+-protection/working-with-p
+ush-protection-from-the-co
+mmand-line#resolving-a-blo
+cked-push        
+remote:             
+remote:             
+remote:       ΓÇöΓÇö 
+OpenAI API Key ΓÇöΓÇöΓÇöΓÇ
+öΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓ
+ÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇö
+ΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇöΓÇ
+öΓÇöΓÇöΓÇöΓÇöΓÇöΓÇö       
+ 
+remote:        locations: 
+       
+remote:          - 
+commit: 25379387c0d8567570
+13209d282286880b701cb6    
+    
+remote:            path: 
+fix_vercel_env.js:9       
+ 
+remote:          - 
+commit: 25379387c0d8567570
+13209d282286880b701cb6    
+    
+remote:            path: 
+setup_vercel_env.ps1:8    
+    
+remote:             
+remote:        (?) To 
+push, remove secret from 
+commit(s) or follow this 
+URL to allow the secret.  
+      
+remote:        https://git
+hub.com/Ultraviolet01/Velo
+ra-ID/security/secret-scan
+ning/unblock-secret/3C9jEE
+RlLGqrWXmR6dIQPN95F6a     
+   
+remote:             
+remote: 
+remote: 
+To https://github.com/Ultr
+aviolet01/Velora-ID.git
+ ! [remote rejected] featu
+re/high-fidelity-redesign 
+-> feature/high-fidelity-r
+edesign (push declined 
+due to repository rule 
+violations)
+error: failed to push 
+some refs to 'https://gith
+ub.com/Ultraviolet01/Velor
+a-ID.git'
