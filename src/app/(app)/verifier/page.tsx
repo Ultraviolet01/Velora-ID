@@ -15,6 +15,7 @@ import {
   ArrowRight,
   Loader2,
   Sparkles,
+  RefreshCw,
 } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -132,6 +133,7 @@ export default function VerifierPage() {
           </p>
         </div>
         <Button variant="outline" size="sm" onClick={fetchApplications}>
+           <RefreshCw className="h-4 w-4 mr-2" />
            Refresh
         </Button>
       </div>
@@ -144,7 +146,7 @@ export default function VerifierPage() {
               <Users className="h-4 w-4" />
               <span className="text-sm">Total Applications</span>
             </div>
-            <p className="text-3xl font-bold">{stats.total}</p>
+            <p className="text-2xl font-bold tracking-tight">{stats.total}</p>
           </CardContent>
         </Card>
 

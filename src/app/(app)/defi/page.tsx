@@ -54,18 +54,6 @@ export default function DefiPage() {
 
       {/* Key Metrics */}
       <div className="grid gap-6 md:grid-cols-4">
-        <Card variant="glass">
-          <CardContent className="pt-6">
-            <div className="flex items-center gap-2 text-muted-foreground mb-2">
-              <Coins className="h-4 w-4" />
-              <span className="text-sm">Credit Limit</span>
-            </div>
-            <p className="text-2xl font-bold text-primary">{formatCurrency(creditLimit)}</p>
-          </CardContent>
-        </Card>
-
-        <Card variant="glass">
-          <CardContent className="pt-6">
             <div className="flex items-center gap-2 text-muted-foreground mb-2">
               <TrendingUp className="h-4 w-4" />
               <span className="text-sm">Credit Tier</span>

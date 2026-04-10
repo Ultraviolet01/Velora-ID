@@ -6,6 +6,7 @@ import {
   DollarSign,
   Building,
   CheckCircle2,
+  Lock,
   ArrowRight,
   Sparkles,
   ChevronDown,
@@ -60,7 +61,7 @@ export default function MerchantPage() {
               <DollarSign className="h-4 w-4" />
               <span className="text-sm">Monthly Sales</span>
             </div>
-            <p className="text-2xl font-bold">{formatCurrency(profileData.monthlySales)}</p>
+            <p className="text-xl font-bold tracking-tight">{formatCurrency(profileData.monthlySales)}</p>
           </CardContent>
         </Card>
 
@@ -70,7 +71,7 @@ export default function MerchantPage() {
               <Building className="h-4 w-4" />
               <span className="text-sm">Business Type</span>
             </div>
-            <p className="text-2xl font-bold">{profileData.businessType}</p>
+            <p className="text-xl font-bold tracking-tight">{profileData.businessType}</p>
           </CardContent>
         </Card>
 
@@ -80,7 +81,7 @@ export default function MerchantPage() {
               <Calendar className="h-4 w-4" />
               <span className="text-sm">Years Active</span>
             </div>
-            <p className="text-2xl font-bold">{profileData.yearsInBusiness} Years</p>
+            <p className="text-xl font-bold tracking-tight">{profileData.yearsInBusiness} Years</p>
           </CardContent>
         </Card>
 
@@ -91,7 +92,7 @@ export default function MerchantPage() {
               <span className="text-sm">Business Health</span>
             </div>
             <div className="flex items-center gap-2">
-              <p className="text-2xl font-bold text-green-500">{businessHealthScore}</p>
+              <p className="text-xl font-bold text-green-500 tracking-tight">{businessHealthScore}</p>
               <span className="text-muted-foreground">/100</span>
             </div>
           </CardContent>
