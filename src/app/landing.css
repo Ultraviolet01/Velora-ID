@@ -1,0 +1,59 @@
+/* landing.css - High Fidelity Overhaul */
+
+@keyframes gradient-x {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-gradient-x {
+  background-size: 200% 200%;
+  animation: gradient-x 15s ease infinite;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.01);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.glass-card:hover {
+  background: rgba(255, 255, 255, 0.02);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Infrastructure Grid Styles */
+#infrastructure .glass-card {
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+#infrastructure .glass-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+}
+
+/* Custom Polygon Clipping for institutional look */
+.clip-path-polygon {
+  clip-path: polygon(var(--tw-clip-path));
+}
+
+/* Typography Enhancements */
+.font-display {
+  font-family: 'Syne', sans-serif;
+}
+
+/* Scrollbar Utility */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Responsive Grid Fixes */
+@media (max-width: 768px) {
+  .text-7xl { font-size: 4rem; }
+  .text-9xl { font-size: 5rem; }
+}

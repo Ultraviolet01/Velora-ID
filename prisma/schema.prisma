@@ -1,82 +1,32 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
 generator client {
   provider = "prisma-client-js"
 }
 
 datasource db {
-  provider  = "postgresql"
-  url       = env("DATABASE_URL")
-  directUrl = env("DIRECT_URL")
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
 }
 
 model User {
-  id                String   @id @default(cuid())
-  displayName       String?
-  evmAddress        String   @unique
-  solanaAddress     String?  @unique
-  trustScore        Int      @default(0)
-  riskTier          String   @default("high")
-  onboardingStep    Int      @default(1)
-  evmVerified       Boolean  @default(false)
-  solanaVerified    Boolean  @default(false)
-  nexaIdVerified    Boolean  @default(false)
-  
-  reputationHistory ReputationHistory[]
-  applications      Application[]
-  fundings          Funding[]
-  repayments        Repayment[]
-  createdAt         DateTime @default(now())
-  updatedAt         DateTime @updatedAt
+  id            String    @id @default(cuid())
+  walletAddress String    @unique
+  onboarded     Boolean   @default(false)
+  profileType   String?   // 'merchant', 'creator', 'defi'
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  profile       Profile?
 }
 
-model ReputationHistory {
-  id         String   @id @default(cuid())
-  userId     String
-  user       User     @relation(fields: [userId], references: [id])
-  trustScore Int
-  riskTier   String
-  snapshot   Json?    // Stores the raw multi-chain data for this snapshot
-  createdAt  DateTime @default(now())
-}
-
-model Application {
-  id                String   @id @default(cuid())
-  userId            String
-  user              User     @relation(fields: [userId], references: [id])
-  type              String   // CREATOR_ADVANCE, MERCHANT_FINANCE, DEFI_CREDIT
-  status            String   @default("pending") // pending, approved, rejected, manual_review
-  amount            Float
-  eligibilitySnapshot Json?    // Snapshot of trustScore, factors at time of application
-  aiReview          Json?    // Summary, justification from institutional risk agent
-  createdAt         DateTime @default(now())
-  updatedAt         DateTime @updatedAt
-  
-  funding           Funding?
-}
-
-model Funding {
-  id                String   @id @default(cuid())
-  applicationId     String   @unique
-  application       Application @relation(fields: [applicationId], references: [id])
-  userId            String
-  user              User     @relation(fields: [userId], references: [id])
-  principal         Float
-  remainingBalance  Float
-  status            String   @default("active") // active, repaid, defaulted
-  dueDate           DateTime
-  createdAt         DateTime @default(now())
-  updatedAt         DateTime @updatedAt
-  
-  repayments        Repayment[]
-}
-
-model Repayment {
-  id         String   @id @default(cuid())
-  fundingId  String
-  funding    Funding  @relation(fields: [fundingId], references: [id])
-  userId     String
-  user       User     @relation(fields: [userId], references: [id])
-  amount     Float
-  status     String   @default("success") // success, failed
-  txHash     String?
-  createdAt  DateTime @default(now())
+model Profile {
+  id          String   @id @default(cuid())
+  userId      String   @unique
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  profileData Json     // Store nested profile data based on type
+  trustScore  Int      @default(0)
+  isVerified  Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 }

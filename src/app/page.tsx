@@ -1,403 +1,176 @@
+"use client";
+
 import Link from "next/link";
-import {
-  Shield,
-  Wallet,
-  TrendingUp,
-  Users,
-  CheckCircle2,
-  ArrowRight,
-  Sparkles,
-  Lock,
-  Zap,
-  Brain,
-  Building,
-  Coins,
-  ChevronRight,
-} from "lucide-react";
-import { Navbar, Footer, HeroSection } from "@/components/layout";
+import { ArrowRight, Shield, Zap, Globe, Lock, Coins, Sparkles, MoveRight, ChevronRight, BarChart3, Database, Workflow } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { Card, CardContent } from "@/components/ui/card";
+import Navbar from "@/components/layout/navbar";
+import { AppBackground } from "@/components/ui/app-background";
 
-const useCases = [
-  {
-    icon: Users,
-    title: "Creator Advances",
-    description:
-      "Unlock cash advances based on your verified creator income. No credit checks, no personal data exposure.",
-    features: ["Income-based eligibility", "Flexible repayment", "Instant access"],
-    badge: "For Creators",
-    color: "from-purple-500 to-pink-500",
-  },
-  {
-    icon: Building,
-    title: "Merchant PayFi",
-    description:
-      "Access working capital financing based on your verified sales history. Privacy-preserved business proofs.",
-    features: ["Sales-based limits", "Weekly settlements", "Business growth"],
-    badge: "For Merchants",
-    color: "from-blue-500 to-cyan-500",
-  },
-  {
-    icon: Coins,
-    title: "DeFi Credit Access",
-    description:
-      "Unlock better DeFi borrowing terms through verified trust signals. No over-collateralization needed.",
-    features: ["Trust-based lending", "Lower collateral", "Premium pools"],
-    badge: "For DeFi Users",
-    color: "from-green-500 to-emerald-500",
-  },
-];
-
-const howItWorks = [
-  {
-    step: "01",
-    title: "Connect Wallet",
-    description: "Link your wallet to begin the verification process securely on HashKey Chain.",
-  },
-  {
-    step: "02",
-    title: "Generate Proofs",
-    description: "Nexa ID generates privacy-preserving proofs of your financial activity and identity.",
-  },
-  {
-    step: "03",
-    title: "Get Scored",
-    description: "Our transparent scoring engine calculates your trust score and eligibility.",
-  },
-  {
-    step: "04",
-    title: "Unlock Access",
-    description: "Access creator advances, merchant financing, or DeFi credit based on your score.",
-  },
-];
-
-const whyHashKey = [
-  {
-    icon: Shield,
-    title: "Enterprise-Grade Security",
-    description: "HashKey Chain provides institutional-level security for financial applications.",
-  },
-  {
-    icon: Zap,
-    title: "High Performance",
-    description: "Fast finality and low transaction costs enable real-time proof verification.",
-  },
-  {
-    icon: Lock,
-    title: "Privacy-First Design",
-    description: "Built for privacy-preserving identity and financial data management.",
-  },
-];
-
-const whyVelora = [
-  {
-    title: "No Credit Checks",
-    description: "We use on-chain activity and verified proofs, not traditional credit scores.",
-  },
-  {
-    title: "Privacy Preserved",
-    description: "Share only what's needed through zero-knowledge proofs and attestations.",
-  },
-  {
-    title: "AI-Powered Insights",
-    description: "Get clear, human-readable explanations for every eligibility decision.",
-  },
-  {
-    title: "Instant Decisions",
-    description: "Real-time eligibility assessment powered by on-chain verification.",
-  },
-];
-
-const faqs = [
-  {
-    question: "What is Velora ID?",
-    answer:
-      "Velora ID is a private financial eligibility layer built on HashKey Chain. It uses Nexa ID for privacy-preserving identity verification and helps creators, merchants, and DeFi users prove their eligibility for funding without exposing sensitive personal data.",
-  },
-  {
-    question: "How does the trust score work?",
-    answer:
-      "The trust score is calculated using a transparent weighted system that considers factors like Nexa ID verification, wallet history, activity consistency, income stability, and repayment history. Each factor contributes to your overall score out of 100.",
-  },
-  {
-    question: "What data do I need to share?",
-    answer:
-      "You only share privacy-preserving proofs, not raw data. Nexa ID generates zero-knowledge proofs that verify claims (like 'monthly income > $5000') without revealing the actual numbers or personal information.",
-  },
-  {
-    question: "Which hackathon tracks does this cover?",
-    answer:
-      "Velora ID covers multiple HashKey Chain Horizon Hackathon tracks: ZKID (privacy-preserving identity), PayFi (merchant financing), DeFi (credit access), and AI (explanation layer).",
-  },
-  {
-    question: "Is my data stored on-chain?",
-    answer:
-      "Only proof hashes and attestations are stored on-chain. Your actual personal and financial data never touches the blockchain. Proofs are generated locally and verified cryptographically.",
-  },
-];
-
-export default function HomePage() {
+export default function LandingPage() {
   return (
-    <div className="min-h-screen">
+    <div className="relative min-h-screen overflow-x-hidden bg-[#020617] selection:bg-[#06D6C0]/30 selection:text-[#06D6C0]">
+      <AppBackground variant="landing" />
       <Navbar />
 
-      <main>
-        {/* Hero */}
-        <HeroSection />
-
-        {/* Use Cases */}
-        <section id="use-cases" className="py-24 relative">
-          <div className="container mx-auto px-4 lg:px-8">
-            <div className="text-center mb-16">
-              <Badge variant="default" className="mb-4">
-                Use Cases
-              </Badge>
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                Unlock Funding Across Three Verticals
-              </h2>
-              <p className="text-muted-foreground max-w-2xl mx-auto">
-                One trust profile, multiple financing options. Prove your eligibility once,
-                access capital everywhere.
-              </p>
+      <main className="relative z-10 pt-32">
+        {/* Simplified Hero */}
+        <div className="container px-6 mx-auto">
+          <div className="max-w-5xl mx-auto text-center space-y-10">
+            <div className="inline-flex items-center gap-3 px-5 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-md hover:bg-white/10 transition-all cursor-default group">
+              <div className="h-2 w-2 rounded-full bg-[#06D6C0] animate-pulse" />
+              <span className="text-xs font-black uppercase tracking-[0.2em] text-[rgba(200,210,240,0.6)] group-hover:text-[#F0F4FF]">Now Live on HashKey Chain Testnet</span>
+              <ChevronRight className="h-3 w-3 text-[rgba(200,210,240,0.4)]" />
             </div>
 
-            <div className="grid md:grid-cols-3 gap-8">
-              {useCases.map((useCase, i) => (
-                <Card key={i} variant="glass" className="relative overflow-hidden group">
-                  <div
-                    className={`absolute inset-0 bg-gradient-to-br ${useCase.color} opacity-0 group-hover:opacity-5 transition-opacity`}
-                  />
-                  <CardHeader>
-                    <Badge variant="outline" className="w-fit mb-4">
-                      {useCase.badge}
-                    </Badge>
-                    <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
-                      <useCase.icon className="h-6 w-6 text-primary" />
-                    </div>
-                    <CardTitle>{useCase.title}</CardTitle>
-                    <CardDescription>{useCase.description}</CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <ul className="space-y-2">
-                      {useCase.features.map((feature, j) => (
-                        <li key={j} className="flex items-center gap-2 text-sm">
-                          <CheckCircle2 className="h-4 w-4 text-green-500" />
-                          <span className="text-muted-foreground">{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </CardContent>
-                </Card>
-              ))}
+            <h1 className="text-7xl md:text-9xl font-display font-black text-[#F0F4FF] tracking-tighter leading-[0.85] uppercase">
+              The Protocol <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#06D6C0] via-[#3B82F6] to-[#6366F1] animate-gradient-x">
+                Of Trust.
+              </span>
+            </h1>
+
+            <p className="max-w-2xl mx-auto text-xl md:text-2xl text-[rgba(200,210,240,0.6)] leading-relaxed font-medium">
+              Institutional-grade identity verification and trust scoring. 
+              Unlock the full potential of HashKey Chain with Velora ID.
+            </p>
+
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-6 pt-10">
+              <Link href="/onboarding">
+                <Button size="xl" className="h-20 px-12 text-sm font-black uppercase tracking-[0.3em] bg-[#F0F4FF] text-[#020617] hover:bg-white rounded-none clip-path-polygon-[0%_0%,100%_0%,95%_100%,0%_100%] transition-all hover:scale-[1.02] shadow-[0_20px_40px_rgba(255,255,255,0.1)] group">
+                  Get Started
+                  <ArrowRight className="ml-3 h-5 w-5 transition-transform group-hover:translate-x-1" />
+                </Button>
+              </Link>
+              <Link href="/vault">
+                <Button size="xl" variant="outline" className="h-20 px-12 text-sm font-black uppercase tracking-[0.3em] border-white/10 text-[#F0F4FF] hover:bg-white/5 backdrop-blur-md transition-all">
+                  Proof Vault
+                </Button>
+              </Link>
             </div>
           </div>
-        </section>
+        </div>
 
-        {/* How It Works */}
-        <section id="how-it-works" className="py-24 bg-card/30">
-          <div className="container mx-auto px-4 lg:px-8">
-            <div className="text-center mb-16">
-              <Badge variant="default" className="mb-4">
-                How It Works
-              </Badge>
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                Four Steps to Financial Eligibility
-              </h2>
-              <p className="text-muted-foreground max-w-2xl mx-auto">
-                From wallet connection to unlocking capital in minutes.
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-4 gap-8">
-              {howItWorks.map((step, i) => (
-                <div key={i} className="relative">
-                  {i < howItWorks.length - 1 && (
-                    <div className="hidden md:block absolute top-8 left-full w-full h-px bg-gradient-to-r from-primary/50 to-transparent -translate-x-4" />
-                  )}
-                  <div className="text-center">
-                    <div className="text-5xl font-bold text-primary/20 mb-4">{step.step}</div>
-                    <h3 className="text-xl font-semibold mb-2">{step.title}</h3>
-                    <p className="text-sm text-muted-foreground">{step.description}</p>
-                  </div>
+        {/* Why HashKey Chain Infrastructure Section */}
+        <div id="infrastructure" className="container px-6 mx-auto pt-48 pb-32">
+          <div className="max-w-6xl mx-auto">
+            <div className="grid lg:grid-cols-2 gap-20 items-center">
+              <div className="space-y-8">
+                <div className="inline-flex items-center gap-2 text-[#06D6C0] font-black uppercase tracking-[0.3em] text-[10px]">
+                  <Database className="h-4 w-4" />
+                  <span>Architecture</span>
                 </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Why HashKey Chain */}
-        <section id="features" className="py-24">
-          <div className="container mx-auto px-4 lg:px-8">
-            <div className="grid lg:grid-cols-2 gap-16 items-center">
-              <div>
-                <Badge variant="default" className="mb-4">
-                  Built on HashKey Chain
-                </Badge>
-                <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                  Why HashKey Chain?
+                <h2 className="text-5xl md:text-6xl font-display font-black text-[#F0F4FF] leading-none uppercase italic tracking-tighter">
+                  Powered by <br />
+                  <span className="text-[#3B82F6]">HashKey Chain</span>
                 </h2>
-                <p className="text-muted-foreground mb-8">
-                  HashKey Chain provides the ideal infrastructure for privacy-preserving
-                  financial applications with its enterprise-grade security and
-                  performance.
+                <p className="text-xl text-[rgba(200,210,240,0.6)] leading-relaxed max-w-xl">
+                  Velora ID leverages HashKey Chain's enterprise-ready infrastructure to deliver sub-second identity resolution with sovereign security.
                 </p>
-
-                <div className="space-y-6">
-                  {whyHashKey.map((item, i) => (
-                    <div key={i} className="flex gap-4">
-                      <div className="h-10 w-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
-                        <item.icon className="h-5 w-5 text-primary" />
-                      </div>
-                      <div>
-                        <h3 className="font-semibold mb-1">{item.title}</h3>
-                        <p className="text-sm text-muted-foreground">{item.description}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <Card variant="gradient" className="p-8">
-                <h3 className="text-xl font-semibold mb-6">Why Velora ID?</h3>
-                <div className="grid grid-cols-2 gap-6">
-                  {whyVelora.map((item, i) => (
-                    <div key={i}>
-                      <h4 className="font-medium mb-1">{item.title}</h4>
-                      <p className="text-sm text-muted-foreground">{item.description}</p>
-                    </div>
-                  ))}
-                </div>
-              </Card>
-            </div>
-          </div>
-        </section>
-
-        {/* AI Underwriting */}
-        <section className="py-24 bg-card/30">
-          <div className="container mx-auto px-4 lg:px-8">
-            <div className="grid lg:grid-cols-2 gap-16 items-center">
-              <div className="order-2 lg:order-1">
-                <Card variant="glass" className="p-6">
-                  <div className="flex items-center gap-2 mb-4">
-                    <Brain className="h-5 w-5 text-primary" />
-                    <span className="font-semibold">AI Insights</span>
-                  </div>
-                  <div className="space-y-4 text-sm">
-                    <div className="p-4 rounded-lg bg-green-500/10 border border-green-500/20">
-                      <p className="font-medium text-green-400 mb-2">Eligibility Approved</p>
-                      <p className="text-muted-foreground">
-                        "Eligible because identity is verified, activity is consistent over 11
-                        months, and income stability shows only 15% variance."
-                      </p>
-                    </div>
-                    <div className="p-4 rounded-lg bg-background/50">
-                      <p className="font-medium mb-2">Score Factors</p>
-                      <ul className="space-y-1 text-muted-foreground">
-                        <li>✓ Nexa ID verification complete (+25 pts)</li>
-                        <li>✓ Wallet age over 180 days (+12 pts)</li>
-                        <li>✓ Consistent monthly activity (+18 pts)</li>
-                      </ul>
-                    </div>
-                    <div className="p-4 rounded-lg bg-primary/5 border border-primary/10">
-                      <p className="font-medium text-primary mb-2">Recommendations</p>
-                      <p className="text-muted-foreground">
-                        "Maintain activity for 2 more months to reach Gold Trust status and
-                        unlock 25% higher limits."
-                      </p>
-                    </div>
-                  </div>
-                </Card>
-              </div>
-
-              <div className="order-1 lg:order-2">
-                <Badge variant="default" className="mb-4">
-                  AI-Powered
-                </Badge>
-                <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                  Underwriting Explained in Plain English
-                </h2>
-                <p className="text-muted-foreground mb-6">
-                  Our AI explanation layer translates complex scoring decisions into
-                  clear, actionable insights. Understand exactly why you're approved,
-                  denied, or what you can do to improve.
-                </p>
-                <ul className="space-y-3">
+                <div className="grid sm:grid-cols-2 gap-6 pt-4">
                   {[
-                    "Clear eligibility explanations",
-                    "Factor-by-factor score breakdown",
-                    "Personalized improvement recommendations",
-                    "Risk tier explanations",
+                    { title: "SBT Standards", desc: "Soul-bound tokens for immutable proof of identity." },
+                    { title: "Native ZK", desc: "Built-in zero-knowledge proofs for privacy-first scoring." }
                   ].map((item, i) => (
-                    <li key={i} className="flex items-center gap-2">
-                      <CheckCircle2 className="h-4 w-4 text-green-500" />
-                      <span className="text-muted-foreground">{item}</span>
-                    </li>
+                    <div key={i} className="p-6 rounded-none border-l-2 border-[#06D6C0] bg-white/[0.02]">
+                      <h4 className="font-display font-black text-[#F0F4FF] uppercase tracking-wider mb-2">{item.title}</h4>
+                      <p className="text-sm text-[rgba(200,210,240,0.4)] leading-relaxed">{item.desc}</p>
+                    </div>
                   ))}
-                </ul>
+                </div>
+              </div>
+
+              <div className="relative">
+                <div className="absolute inset-0 bg-gradient-to-r from-[#06D6C0]/20 to-[#3B82F6]/20 blur-[100px] opacity-30" />
+                <div className="grid gap-6 relative z-10">
+                  <Card className="glass-card group hover:bg-white/[0.05] border-white/5 hover:border-[#06D6C0]/30 transition-all duration-500 rounded-none overflow-hidden p-8">
+                    <CardContent className="p-0 flex gap-6">
+                      <div className="h-16 w-16 flex-shrink-0 bg-[#06D6C0]/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
+                        <Lock className="h-8 w-8 text-[#06D6C0]" />
+                      </div>
+                      <div className="space-y-2">
+                        <h3 className="text-2xl font-display font-black text-[#F0F4FF] uppercase tracking-tight">Institutional Security</h3>
+                        <p className="text-[rgba(200,210,240,0.5)] leading-relaxed">HSM-backed identity anchors ensuring enterprise-level protection for every user profile.</p>
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  <Card className="glass-card group hover:bg-white/[0.05] border-white/5 hover:border-[#3B82F6]/30 transition-all duration-500 rounded-none overflow-hidden p-8">
+                    <CardContent className="p-0 flex gap-6">
+                      <div className="h-16 w-16 flex-shrink-0 bg-[#3B82F6]/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
+                        <Zap className="h-8 w-8 text-[#3B82F6]" />
+                      </div>
+                      <div className="space-y-2">
+                        <h3 className="text-2xl font-display font-black text-[#F0F4FF] uppercase tracking-tight">EVM Performance</h3>
+                        <p className="text-[rgba(200,210,240,0.5)] leading-relaxed">High-throughput execution for real-time credit scoring and instant DeFi eligibility.</p>
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  <Card className="glass-card group hover:bg-white/[0.05] border-white/5 hover:border-[#6366F1]/30 transition-all duration-500 rounded-none overflow-hidden p-8">
+                    <CardContent className="p-0 flex gap-6">
+                      <div className="h-16 w-16 flex-shrink-0 bg-[#6366F1]/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
+                        <Workflow className="h-8 w-8 text-[#6366F1]" />
+                      </div>
+                      <div className="space-y-2">
+                        <h3 className="text-2xl font-display font-black text-[#F0F4FF] uppercase tracking-tight">Cross-Protocol Sync</h3>
+                        <p className="text-[rgba(200,210,240,0.5)] leading-relaxed">Seamlessly integrate your Velora ID with any DeFi or PayFi application on HashKey Chain.</p>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </div>
               </div>
             </div>
           </div>
-        </section>
+        </div>
 
-        {/* FAQ */}
-        <section id="faq" className="py-24">
-          <div className="container mx-auto px-4 lg:px-8">
-            <div className="max-w-3xl mx-auto">
-              <div className="text-center mb-12">
-                <Badge variant="default" className="mb-4">
-                  FAQ
-                </Badge>
-                <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                  Frequently Asked Questions
-                </h2>
+        {/* Feature Grid */}
+        <div className="container px-6 mx-auto py-32 border-t border-white/5">
+          <div className="grid md:grid-cols-3 gap-12">
+            {[
+              {
+                icon: Shield,
+                title: "Nexa ID Verification",
+                description: "AI-driven identity verification that binds real-world credentials to your wallet securely.",
+                color: "from-emerald-400 to-cyan-400"
+              },
+              {
+                icon: BarChart3,
+                title: "Trust Scoring",
+                description: "Dynamic algorithms calculate your reliability score based on on-chain activity and proofs.",
+                color: "from-blue-400 to-indigo-400"
+              },
+              {
+                icon: Workflow,
+                title: "Verified Capacity",
+                description: "Unlock under-collateralized loans and higher merchant financing limits instantly.",
+                color: "from-indigo-400 to-purple-400"
+              }
+            ].map((feature, i) => (
+              <div key={i} className="group relative">
+                <div className={`absolute inset-0 bg-gradient-to-r ${feature.color} opacity-0 group-hover:opacity-5 blur-3xl transition-opacity`} />
+                <div className="relative p-10 border border-white/5 bg-white/[0.01] hover:bg-white/[0.03] transition-all duration-500">
+                  <feature.icon className="h-12 w-12 text-[#F0F4FF] mb-8" />
+                  <h3 className="text-2xl font-display font-bold text-[#F0F4FF] mb-4 uppercase italic tracking-tight">{feature.title}</h3>
+                  <p className="text-[rgba(200,210,240,0.5)] leading-relaxed">{feature.description}</p>
+                </div>
               </div>
-
-              <Accordion type="single" collapsible className="w-full">
-                {faqs.map((faq, i) => (
-                  <AccordionItem key={i} value={`item-${i}`}>
-                    <AccordionTrigger>{faq.question}</AccordionTrigger>
-                    <AccordionContent>{faq.answer}</AccordionContent>
-                  </AccordionItem>
-                ))}
-              </Accordion>
-            </div>
+            ))}
           </div>
-        </section>
-
-        {/* CTA */}
-        <section className="py-24 relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-purple-500/10 to-pink-500/10" />
-          <div className="container mx-auto px-4 lg:px-8 relative z-10">
-            <div className="text-center max-w-2xl mx-auto">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                Ready to Unlock Your Financial Eligibility?
-              </h2>
-              <p className="text-muted-foreground mb-8">
-                Connect your wallet, generate privacy-preserving proofs, and discover
-                what funding options you qualify for.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link href="/onboarding">
-                  <Button variant="gradient" size="xl" className="gap-2">
-                    <Wallet className="h-5 w-5" />
-                    Start Now
-                  </Button>
-                </Link>
-                <Link href="/docs">
-                  <Button variant="outline" size="xl" className="gap-2">
-                    Read Documentation
-                    <ChevronRight className="h-5 w-5" />
-                  </Button>
-                </Link>
-              </div>
-            </div>
-          </div>
-        </section>
+        </div>
       </main>
 
-      <Footer />
+      {/* Footer-like Branding */}
+      <footer className="relative z-10 border-t border-white/5 py-20">
+        <div className="container px-6 mx-auto flex flex-col items-center space-y-8">
+          <div className="text-4xl font-display font-black text-[#F0F4FF] italic tracking-[0.2em] uppercase opacity-20">
+            Velora ID
+          </div>
+          <div className="text-[10px] font-black uppercase tracking-[0.5em] text-[rgba(200,210,240,0.3)]">
+            Institutional Trust Infrastructure • 2026
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }

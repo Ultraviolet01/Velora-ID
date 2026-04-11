@@ -1,40 +1,47 @@
-export const KYC_SBT_ADDRESS = "0x890C366710714E297A9B935ffCDBb24e7059B43A";
+export const HASHKEY_KYC_SBT_ADDRESS = (process.env.NEXT_PUBLIC_HASHKEY_KYC_SBT_ADDRESS || '0x62B6717C2f99ADF098C64303d84fB14467d58F49') as `0x${string}`;
 
-export const KYC_SBT_ABI = [
+export const HASHKEY_KYC_SBT_ABI = [
   {
-    "inputs": [{ "internalType": "address", "name": "account", "type": "address" }],
-    "name": "isHuman",
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "account",
+        "type": "address"
+      }
+    ],
+    "name": "isVerified",
     "outputs": [
-      { "internalType": "bool", "name": "isHuman", "type": "bool" },
-      { "internalType": "uint8", "name": "level", "type": "uint8" }
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
     ],
     "stateMutability": "view",
     "type": "function"
   },
   {
-    "inputs": [{ "internalType": "address", "name": "account", "type": "address" }],
-    "name": "getKycInfo",
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "account",
+        "type": "address"
+      }
+    ],
+    "name": "getVerificationDetails",
     "outputs": [
-      { "internalType": "string", "name": "ensName", "type": "string" },
-      { "internalType": "uint8", "name": "level", "type": "uint8" },
-      { "internalType": "uint8", "name": "status", "type": "uint8" },
-      { "internalType": "uint256", "name": "createTime", "type": "uint256" }
+      {
+        "internalType": "uint256",
+        "name": "timestamp",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "score",
+        "type": "uint256"
+      }
     ],
     "stateMutability": "view",
     "type": "function"
   }
 ] as const;
-
-export enum KycLevel {
-  NONE = 0,
-  BASIC = 1,
-  ADVANCED = 2,
-  PREMIUM = 3,
-  ULTIMATE = 4
-}
-
-export enum KycStatus {
-  NONE = 0,
-  APPROVED = 1,
-  REVOKED = 2
-}
